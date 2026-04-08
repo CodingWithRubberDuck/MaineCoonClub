@@ -8,23 +8,30 @@
 <body>
 
 <div class="header">
-    <h1>Velkommen til Startsiden</h1>
-    <h2>Du kan teste valideringen af registrering ved klik af link ude i siden eller du kan klikke på knappen nedenunder</h2>
+    <h1>Velkommen til Maine Coon Klubben!</h1>
+    <h2>Dette er start sidens indhold</h2>
 </div>
 
 <div class="container">
 
     <div class="sidebar">
         <a href="/">Start Side</a>
-        <a href="/register">Registrering</a>
+        <a href="/authentication/register">Registrering</a>
+        <a href="/authentication/login">Log ind</a>
     </div>
 
     <div class="content">
         <p>
             Gå videre til registrering:
 
-            <form action="/register" method="get">
+            <form action="/authentication/register" method="get">
                 <button type="submit">Gå til Registrering</button>
+            </form>
+        </p>
+        <p>
+            Gå videre til Log ind siden:
+            <form action="/authentication/login" method="get">
+                <button type="submit">Gå til Log Ind</button>
             </form>
         </p>
 

@@ -1,7 +1,10 @@
 package com.RaceKatteKlubben.MaineCoonClub.controller;
 
+import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
 import com.RaceKatteKlubben.MaineCoonClub.service.MemberLoginService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MemberLoginController {
@@ -9,5 +12,22 @@ public class MemberLoginController {
 
     public MemberLoginController(MemberLoginService service) {
         this.service = service;
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return "index";
+    }
+
+    @GetMapping("/authentication/register")
+    public String showRegisterForm(Model model){
+        model.addAttribute("member", new Member());
+        return "authentication/register";
+    }
+
+    @GetMapping("/authentication/login")
+    public String showLoginForm(Model model){
+        model.addAttribute("member", new Member());
+        return "authentication/login";
     }
 }
