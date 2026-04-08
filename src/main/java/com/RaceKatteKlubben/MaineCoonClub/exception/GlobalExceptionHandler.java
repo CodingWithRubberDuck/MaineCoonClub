@@ -1,6 +1,5 @@
-package com.RaceKatteKlubben.MaineCoonClub.controller;
+package com.RaceKatteKlubben.MaineCoonClub.exception;
 
-import com.RaceKatteKlubben.MaineCoonClub.exception.DatabaseConnectionException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
