@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Fejl</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Ups noget gik galt</h1>
+    <h2 th:text="${type}"></h2>
+</div>
+
+<div class="error-text">
+    <strong>
+    <p th:text="${errorMessage}"></p>
+    </strong>
+</div>
+
+<div class="main-text">
+    <p>
+        Klik på knappen herunder for at komme tilbage til registrering: <br>
+        <form action="/register" method="get">
+            <button type="submit">Gå til Registrering</button>
+        </form>
+    </p>
+</div>
+
+<div class="footer">
+    &copy; 2026 | All Rights Reserved
+</div>
+</body>
+</html>

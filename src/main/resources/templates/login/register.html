@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/html" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registering</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Velkommen til Validering af Registrering</h1>
+    <h2>Du vil her kunne prøve kræfter med 2 typer af validering</h2>
+</div>
+
+<div class="container">
+
+    <div class="sidebar">
+        <a href="/">Start Side</a>
+        <a href="/register">Registrering</a>
+    </div>
+
+    <div class="content">
+        <p>
+            Vælg en type af registrering, indtast den relevante information, og klik på knappen:
+
+            <form th:action="@{/submit}" method="post" th:object="${user}">
+                <select class="form-control" name="validation-options" id="validation-options">
+                    <option th:each="option : ${validationOptions}"
+                            th:value="${option.value}"
+                            th:text="${option.danishDisplay}"></option>
+                </select><br><br>
+
+                <label for="username">Indtast brugernavn </label><br>
+                <input type="text" id="username" th:field="*{username}" placeholder="Spiderman" required><br><br>
+                <label for="email">Indtast email </label><br>
+                <input type="email" id="email" th:field="*{email}" placeholder="Spiderman@gmail.com" required><br><br>
+                <label for="password">Indtast kodeord </label><br>
+                <input type="password" id="password" th:field="*{password}" required><br><br>
+                <button type="submit">Prøv</button>
+            </form>
+        </p>
+
+    </div>
+
+</div>
+<div class="footer">
+    &copy; 2026 | All Right Reserved
+</div>
+</body>
+</html>
