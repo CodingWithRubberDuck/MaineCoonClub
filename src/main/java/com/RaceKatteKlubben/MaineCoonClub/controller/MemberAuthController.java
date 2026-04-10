@@ -28,8 +28,9 @@ public class MemberAuthController {
     }
 
     @PostMapping("/authentication/register")
-    public String tryToRegister(@ModelAttribute Member member, Model model){
-
+    public String tryToRegister(@ModelAttribute Member member){
+        service.checkRegister(member);
+        return "redirect:/authentication/login";
     }
 
     @GetMapping("/authentication/login")

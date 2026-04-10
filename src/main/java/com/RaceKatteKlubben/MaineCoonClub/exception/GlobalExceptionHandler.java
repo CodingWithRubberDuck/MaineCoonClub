@@ -26,10 +26,18 @@ public class GlobalExceptionHandler {
         return "authentication/login";
     }
 
+    @ExceptionHandler(DataAccessException.class)
+    public String handleDataAccess(DataAccessException dae, Model model){
+        model.addAttribute("type", "Databasefejl");
+        model.addAttribute("errorMessage", dae.getMessage());
+        return "error";
+    }
+
+
     @ExceptionHandler(Exception.class)
     public String handleGeneric(Exception ex, Model model){
         model.addAttribute("type", "Ukendt Fejl");
-        model.addAttribute("errorMessage", "Der skete en uventet fejl");
+        model.addAttribute("errorMessage", ex.getMessage());
         return "error";
     }
 

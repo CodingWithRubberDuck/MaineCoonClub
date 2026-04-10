@@ -164,25 +164,25 @@ public class RegisterValidationTest {
 
     @Test
     void registerValidation_shouldThrowWhenPasswordNull(){
-        minimumSuccessMember.setPasswordHash(null);
+        minimumSuccessMember.setPassword(null);
         assertThrows(RegisterValidationException.class, ()-> registerValidation.validate(minimumSuccessMember));
     }
 
     @Test
     void registerValidation_shouldThrowWhenPasswordNotContainNumber(){
-        minimumSuccessMember.setPasswordHash("abcdefgh");
+        minimumSuccessMember.setPassword("abcdefgh");
         assertThrows(RegisterValidationException.class, ()-> registerValidation.validate(minimumSuccessMember));
     }
 
     @Test
     void registerValidation_shouldThrowWhenPasswordNotContainLetter(){
-        minimumSuccessMember.setPasswordHash("12345678");
+        minimumSuccessMember.setPassword("12345678");
         assertThrows(RegisterValidationException.class, ()-> registerValidation.validate(minimumSuccessMember));
     }
 
     @Test
     void registerValidation_shouldThrowWhenPasswordContainWhitespace(){
-        minimumSuccessMember.setPasswordHash("a123 4567");
+        minimumSuccessMember.setPassword("a123 4567");
         assertThrows(RegisterValidationException.class, ()-> registerValidation.validate(minimumSuccessMember));
     }
 

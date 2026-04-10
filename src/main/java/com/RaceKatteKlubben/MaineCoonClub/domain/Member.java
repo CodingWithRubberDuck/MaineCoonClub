@@ -4,15 +4,15 @@ public class Member {
     private int memberId;
     private String name;
     private String email;
-    private String passwordHash;
+    private String password;
 
     public Member() {}
 
-    public Member(int memberId, String name, String email, String passwordHash) {
+    public Member(int memberId, String name, String email, String password) {
         this.memberId = memberId;
         this.name = name;
         this.email = email;
-        this.passwordHash = passwordHash;
+        this.password = password;
     }
 
     /// Getters
@@ -28,8 +28,8 @@ public class Member {
         return email;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
+    public String getPassword() {
+        return password;
     }
 
     /// Setters
@@ -45,8 +45,8 @@ public class Member {
         this.email = email;
     }
 
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /// toString

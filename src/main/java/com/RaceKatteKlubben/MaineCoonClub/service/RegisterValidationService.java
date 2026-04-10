@@ -14,7 +14,7 @@ public class RegisterValidationService {
     public void validate(Member member){
         validateName(member.getName());
         validateEmail(member.getEmail());
-        validatePassword(member.getPasswordHash());
+        validatePassword(member.getPassword());
     }
 
     /**

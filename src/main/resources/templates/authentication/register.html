@@ -30,13 +30,13 @@
         </p>
 
         <p>
-            <form th:action="@{/submit}" method="post" th:object="${member}">
+            <form th:action="@{/authentication/register}" method="post" th:object="${member}">
                 <label for="name">Indtast navn </label><br>
                 <input type="text" id="name" th:field="*{name}" placeholder="Frank" required><br><br>
                 <label for="email">Indtast email </label><br>
                 <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
                 <label for="password">Indtast kodeord </label><br>
-                <input type="password" id="password" th:field="*{passwordHash}" required><br><br>
+                <input type="password" id="password" th:field="*{password}" required><br><br>
                 <button type="submit">Prøv</button>
             </form>
         </p>
