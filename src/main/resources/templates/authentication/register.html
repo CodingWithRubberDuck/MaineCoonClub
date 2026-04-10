@@ -22,7 +22,14 @@
     <div class="content">
         <p>
             Indtast den relevante information, og klik på knappen:
+        </p>
+        <p>
+            <strong>
+                <p th:text="${responseMessage}"></p>
+            </strong>
+        </p>
 
+        <p>
             <form th:action="@{/submit}" method="post" th:object="${member}">
                 <label for="name">Indtast navn </label><br>
                 <input type="text" id="name" th:field="*{name}" placeholder="Frank" required><br><br>

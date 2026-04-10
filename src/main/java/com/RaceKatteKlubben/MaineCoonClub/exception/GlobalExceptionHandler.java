@@ -14,8 +14,17 @@ public class GlobalExceptionHandler {
         return "error";
     }
 
+    @ExceptionHandler(RegisterValidationException.class)
+    public String handleRegisterValidation(RegisterValidationException rve, Model model){
+        model.addAttribute("responseMessage", rve.getMessage());
+        return "authentication/register";
+    }
 
-
+    @ExceptionHandler(LoginValidationException.class)
+    public String handleLoginValidation(LoginValidationException lve, Model model){
+        model.addAttribute("responseMessage", lve.getMessage());
+        return "authentication/login";
+    }
 
     @ExceptionHandler(Exception.class)
     public String handleGeneric(Exception ex, Model model){

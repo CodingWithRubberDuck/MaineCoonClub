@@ -22,7 +22,14 @@
     <div class="content">
         <p>
             Indtast den relevante information, og klik på knappen:
+        </p>
+        <p>
+            <strong>
+                <p th:text="${responseMessage}"></p>
+            </strong>
+        </p>
 
+        <p>
         <form th:action="@{/submit}" method="post" th:object="${member}">
             <label for="email">Indtast email </label><br>
             <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
