@@ -1,16 +1,16 @@
 package com.RaceKatteKlubben.MaineCoonClub.repository;
 
-import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberLoginRepository;
+import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberAuthRepository;
 import com.RaceKatteKlubben.MaineCoonClub.config.DatabaseConfig;
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MySQLMemberLoginRepository implements IMemberLoginRepository {
+public class MySQLMemberAuthRepository implements IMemberAuthRepository {
 
     private final DatabaseConfig databaseConfig;
 
-    public MySQLMemberLoginRepository(DatabaseConfig databaseConfig){
+    public MySQLMemberAuthRepository(DatabaseConfig databaseConfig){
         this.databaseConfig = databaseConfig;
     }
 

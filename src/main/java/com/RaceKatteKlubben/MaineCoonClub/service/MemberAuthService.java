@@ -1,15 +1,15 @@
 package com.RaceKatteKlubben.MaineCoonClub.service;
 
-import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberLoginRepository;
+import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberAuthRepository;
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberLoginService {
+public class MemberAuthService {
 
-    private final IMemberLoginRepository repository;
+    private final IMemberAuthRepository repository;
 
-    public MemberLoginService(IMemberLoginRepository repository){
+    public MemberAuthService(IMemberAuthRepository repository){
         this.repository = repository;
     }
 

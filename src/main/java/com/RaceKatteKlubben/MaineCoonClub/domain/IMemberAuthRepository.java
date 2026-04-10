@@ -1,6 +1,6 @@
 package com.RaceKatteKlubben.MaineCoonClub.domain;
 
-public interface IMemberLoginRepository {
+public interface IMemberAuthRepository {
     boolean emailAlreadyExists(String email);
     void saveNewMember(Member member);
 }

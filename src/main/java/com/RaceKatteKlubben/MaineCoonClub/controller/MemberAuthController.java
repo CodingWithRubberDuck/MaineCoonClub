@@ -1,7 +1,7 @@
 package com.RaceKatteKlubben.MaineCoonClub.controller;
 
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
-import com.RaceKatteKlubben.MaineCoonClub.service.MemberLoginService;
+import com.RaceKatteKlubben.MaineCoonClub.service.MemberAuthService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class MemberLoginController {
-    private final MemberLoginService service;
+public class MemberAuthController {
+    private final MemberAuthService service;
 
-    public MemberLoginController(MemberLoginService service) {
+    public MemberAuthController(MemberAuthService service) {
         this.service = service;
     }
 
