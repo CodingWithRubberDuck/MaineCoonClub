@@ -2,6 +2,7 @@ package com.RaceKatteKlubben.MaineCoonClub.service;
 
 import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberAuthRepository;
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
+import com.RaceKatteKlubben.MaineCoonClub.exception.LoginValidationException;
 import com.RaceKatteKlubben.MaineCoonClub.exception.RegisterValidationException;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,14 @@ public class MemberAuthService {
         String hashed = BCrypt.hashpw(member.getPassword(), BCrypt.gensalt(10));
         member.setPassword(hashed);
         repository.saveNewMember(member);
+    }
+
+    public Member checkLogin(String email, String password){
+        Member member = repository.emailAlreadyExists(email);
+        if (member != null && BCrypt.checkpw(password, member.getPassword())){
+            return member;
+        }
+        throw new LoginValidationException("Email eller kodeord er ikke korrekt");
     }
 
 }

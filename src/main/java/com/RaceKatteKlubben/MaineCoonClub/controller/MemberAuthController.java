@@ -2,6 +2,7 @@ package com.RaceKatteKlubben.MaineCoonClub.controller;
 
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
 import com.RaceKatteKlubben.MaineCoonClub.service.MemberAuthService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,4 +39,28 @@ public class MemberAuthController {
         model.addAttribute("member", new Member());
         return "authentication/login";
     }
+
+    @PostMapping("/authentication/login")
+    public String tryToLogin(@ModelAttribute Member member, HttpSession session){
+        Member loggedIn = service.checkLogin(member.getEmail(), member.getPassword());
+        session.setAttribute("currentUser", loggedIn);
+        return "redirect:/welcome";
+    }
+
+    @GetMapping("/welcome")
+    public String showWelcome(HttpSession session){
+        Member currentMember = (Member) session.getAttribute("currentUser");
+        if (currentMember == null){
+            return "redirect:/login";
+        }
+        return "welcome";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/authentication/login";
+    }
+
+
 }

@@ -1,33 +1,43 @@
 package com.RaceKatteKlubben.MaineCoonClub.exception;
 
+import com.RaceKatteKlubben.MaineCoonClub.service.ExceptionLoggerService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    final ExceptionLoggerService loggerService;
+
+    public GlobalExceptionHandler(ExceptionLoggerService loggerService){
+        this.loggerService = loggerService;
+    }
+
     @ExceptionHandler(DatabaseConnectionException.class)
     public String handleDatabaseConnection(DatabaseConnectionException dce, Model model){
+        loggerService.checkSaveExceptionMessage(dce);
         model.addAttribute("type", "Database fejl");
         model.addAttribute("errorMessage", dce.getMessage());
         return "error";
     }
 
     @ExceptionHandler(RegisterValidationException.class)
-    public String handleRegisterValidation(RegisterValidationException rve, Model model){
-        model.addAttribute("responseMessage", rve.getMessage());
-        return "authentication/register";
+    public String handleRegisterValidation(RegisterValidationException rve, RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("responseMessage", rve.getMessage());
+        return "redirect:register";
     }
 
     @ExceptionHandler(LoginValidationException.class)
-    public String handleLoginValidation(LoginValidationException lve, Model model){
-        model.addAttribute("responseMessage", lve.getMessage());
-        return "authentication/login";
+    public String handleLoginValidation(LoginValidationException lve, RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("responseMessage", lve.getMessage());
+        return "redirect:login";
     }
 
     @ExceptionHandler(DataAccessException.class)
     public String handleDataAccess(DataAccessException dae, Model model){
+        loggerService.checkSaveExceptionMessage(dae);
         model.addAttribute("type", "Databasefejl");
         model.addAttribute("errorMessage", dae.getMessage());
         return "error";
@@ -36,8 +46,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handleGeneric(Exception ex, Model model){
+        loggerService.checkSaveExceptionMessage(ex);
         model.addAttribute("type", "Ukendt Fejl");
-        model.addAttribute("errorMessage", ex.getMessage());
+        model.addAttribute("errorMessage", "Det er ukendt hvad der er gået galt");
         return "error";
     }
 
