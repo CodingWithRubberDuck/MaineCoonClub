@@ -1,0 +1,41 @@
+
+10:23:27.447945400 : Der er ikke forbindelse til databasen
+ com.RaceKatteKlubben.MaineCoonClub.exception.DatabaseConnectionException : Der er ikke forbindelse til databasen
+10:37:42.955675500 : Der er ikke forbindelse til databasen
+ DatabaseConnectionException : Der er ikke forbindelse til databasen
+10:43:41.434530200 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:01:27 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:01:28 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:03:02 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:10:16 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:10:17 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:14:57 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:14:58 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:17:10 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:17:10 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:17:14 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:17:15 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:19:26 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:19:27 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:19:59 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:20:00 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+11:21:30 : Der er ikke forbindelse til databasen
+ SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
+11:21:30 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
