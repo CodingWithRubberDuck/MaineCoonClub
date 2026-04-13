@@ -25,11 +25,9 @@
             <p>Indtast den relevante information, og klik på knappen:</p>
         </section>
 
-        <p>
-            <strong>
-                <p th:text="${responseMessage}"></p>
-            </strong>
-        </p>
+        <section class="error">
+            <p th:text="${responseMessage}"></p>
+        </section>
 
         <p>
         <form th:action="@{/authentication/login}" method="post" th:object="${member}">
@@ -47,8 +45,9 @@
     </div>
 
 </div>
-<div class="footer">
-    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
-</div>
+
+    <div class="footer">
+        &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
+    </div>
 </body>
 </html>
