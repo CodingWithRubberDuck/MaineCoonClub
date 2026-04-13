@@ -8,38 +8,38 @@
 <body>
 
 <div class="header">
-    <h1>Velkommen til Maine Coon Klubben!</h1>
-    <h2>Dette er start sidens indhold</h2>
+    <h1>Maine Coon Klubben</h1>
+    <p>Velkommen til vores katteunivers!</p>
 </div>
 
 <div class="container">
 
-    <div class="sidebar">
-        <a href="/">Start Side</a>
-        <a href="/authentication/register">Registrering</a>
-        <a href="/authentication/login">Log ind</a>
-    </div>
+        <nav class="sidebar">
+            <a href="/" class="nav-link">Startside</a>
+            <a href="/authentication/register" class="nav-link">Registrering</a>
+            <a href="/authentication/login" class="nav-link">Log ind</a>
+        </nav>
 
     <div class="content">
-        <p>
-            Gå videre til registrering:
+        <section class="intro">
+            <h2>Kom i gang</h2>
+            <p>Vælg en af nedenstående muligheder for at fortsætte:</p>
+        </section>
 
+        <section class="actions">
             <form action="/authentication/register" method="get">
-                <button type="submit">Gå til Registrering</button>
+                <button type="submit" class="btn">Gå til Registrering</button>
             </form>
-        </p>
-        <p>
-            Gå videre til Log ind siden:
-            <form action="/authentication/login" method="get">
-                <button type="submit">Gå til Log Ind</button>
-            </form>
-        </p>
 
+            <form action="/authentication/login" method="get">
+                <button type="submit" class="btn">Gå til Log ind</button>
+            </form>
+        </section>
     </div>
 
 </div>
 <div class="footer">
-    &copy; 2026 | All Right Reserved
+    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
 </div>
 </body>
 </html>

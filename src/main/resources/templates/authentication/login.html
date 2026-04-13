@@ -13,16 +13,18 @@
 
 <div class="container">
 
-    <div class="sidebar">
-        <a href="/">Start Side</a>
-        <a href="/authentication/register">Registrering</a>
-        <a href="/authentication/login">Log ind</a>
-    </div>
+    <nav class="sidebar">
+        <a href="/" class="nav-link">Startside</a>
+        <a href="/authentication/register" class="nav-link">Registrering</a>
+        <a href="/authentication/login" class="nav-link">Log ind</a>
+    </nav>
 
     <div class="content">
-        <p>
-            Indtast den relevante information, og klik på knappen:
-        </p>
+        <section class="intro">
+            <h2>Log ind</h2>
+            <p>Indtast den relevante information, og klik på knappen:</p>
+        </section>
+
         <p>
             <strong>
                 <p th:text="${responseMessage}"></p>
@@ -35,15 +37,18 @@
             <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
             <label for="password">Indtast kodeord </label><br>
             <input type="password" id="password" th:field="*{password}" required><br><br>
-            <button type="submit">Prøv</button>
         </form>
         </p>
+
+        <section class="actions">
+            <button type="submit" class="btn">Prøv</button>
+        </section>
 
     </div>
 
 </div>
 <div class="footer">
-    &copy; 2026 | All Right Reserved
+    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
 </div>
 </body>
 </html>
