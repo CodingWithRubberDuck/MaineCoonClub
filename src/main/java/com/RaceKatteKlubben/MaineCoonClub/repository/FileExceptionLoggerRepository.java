@@ -9,25 +9,27 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @Repository
 public class FileExceptionLoggerRepository implements IExceptionLoggerRepository {
     private String filePath;
     private String backupFilePath;
+    private final DateTimeFormatter timeFmt = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 
     //Dette har mange indbyggede design-fejl, men det fungerer for nu, konstruktiv kritik ville være fint
     @Override
-    public void saveExceptionMessage(Exception e, Throwable root) {
+    public void saveExceptionMessage(Exception e, String details) {
         setFilePath();
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
-            writer.write("\n" + LocalTime.now() + " : " + e.getMessage() +
-                    "\n " + root.getClass().getName() + " : " + root.getMessage());
+            writer.write("\n" + LocalTime.now().format(timeFmt) + " : " + e.getMessage() +
+                    "\n " + details);
         } catch (IOException ioe) {
             setBackupFilePath();
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(backupFilePath, true))){
-                writer.write("\n" + LocalTime.now() + " : " + e.getMessage() +
-                        "\n " + root.getClass().getName() + " : " + root.getMessage() +
+                writer.write("\n" + LocalTime.now().format(timeFmt) + " : " + e.getMessage() +
+                        "\n " + details +
                         "\n Indlæsningsfejl i forhold til fil : " + ioe.getMessage());
             } catch (IOException ioe2) {
                 //Ingen idé hvis backup fejler
@@ -36,11 +38,11 @@ public class FileExceptionLoggerRepository implements IExceptionLoggerRepository
     }
 
     private void setFilePath(){
-        this.filePath = "src\\exceptionlogs\\" + getLogName();
+        this.filePath = "src\\main\\java\\com\\RaceKatteKlubben\\MaineCoonClub\\exceptionlogs\\" + getLogName();
     }
 
     private void setBackupFilePath(){
-        this.backupFilePath = Paths.get(System.getProperty("user.home")) + getLogName();
+        this.backupFilePath = Paths.get(System.getProperty("user.home")) + "\\" + getLogName();
     }
 
     private String getLogName(){

@@ -131,6 +131,11 @@ input {
 	margin-top: 2rem;
 }
 
+.error-page-text{
+    text-align: center;
+    line-height: 3rem;
+}
+
 /* Responsivt */
 @media (max-width: 768px) {
 	.main-container {

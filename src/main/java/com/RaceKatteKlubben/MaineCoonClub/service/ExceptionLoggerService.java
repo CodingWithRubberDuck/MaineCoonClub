@@ -14,11 +14,7 @@ public class ExceptionLoggerService {
         this.repository = repository;
     }
 
-    public void checkSaveExceptionMessage(Exception e){
-        Throwable root = e;
-        while (root.getCause() != null){
-            root = root.getCause();
-        }
-        repository.saveExceptionMessage(e, root);
+    public void checkSaveExceptionMessage(Exception e, String details){
+        repository.saveExceptionMessage(e, details);
     }
 }

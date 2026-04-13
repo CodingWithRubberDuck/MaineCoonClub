@@ -23,8 +23,8 @@ public class DatabaseConfig {
     public Connection getConnection(){
         try {
             return DriverManager.getConnection(dbUrl,dbUsername,dbPassword);
-        } catch (SQLException e) {
-            throw new DatabaseConnectionException("Der er ikke forbindelse til databasen");
+        } catch (SQLException sqle) {
+            throw new DatabaseConnectionException("Der er ikke forbindelse til databasen", sqle);
         }
     }
 

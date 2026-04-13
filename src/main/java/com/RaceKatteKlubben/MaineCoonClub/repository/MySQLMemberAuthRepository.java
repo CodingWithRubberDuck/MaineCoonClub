@@ -40,7 +40,7 @@ public class MySQLMemberAuthRepository implements IMemberAuthRepository {
             }
 
         } catch (SQLException sqle){
-            throw new DataAccessException("Der gik noget galt i forbindelse med databasen");
+            throw new DataAccessException("Der gik noget galt i forbindelse med databasen", sqle);
         }
         return null;
     }
@@ -56,8 +56,7 @@ public class MySQLMemberAuthRepository implements IMemberAuthRepository {
             stmt.setString(3, member.getPassword());
             stmt.executeUpdate();
         } catch (SQLException sqle) {
-            sqle.printStackTrace();
-            throw new DataAccessException("Der gik noget galt i forbindelse med databasen");
+            throw new DataAccessException("Der gik noget galt i forbindelse med databasen", sqle);
         }
     }
 

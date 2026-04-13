@@ -17,7 +17,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DatabaseConnectionException.class)
     public String handleDatabaseConnection(DatabaseConnectionException dce, Model model){
-        loggerService.checkSaveExceptionMessage(dce);
+        loggerService.checkSaveExceptionMessage(dce, rootCauseMessage(dce));
         model.addAttribute("type", "Database fejl");
         model.addAttribute("errorMessage", dce.getMessage());
         return "error";
@@ -37,7 +37,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DataAccessException.class)
     public String handleDataAccess(DataAccessException dae, Model model){
-        loggerService.checkSaveExceptionMessage(dae);
+        loggerService.checkSaveExceptionMessage(dae, rootCauseMessage(dae));
         model.addAttribute("type", "Databasefejl");
         model.addAttribute("errorMessage", dae.getMessage());
         return "error";
@@ -46,10 +46,18 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String handleGeneric(Exception ex, Model model){
-        loggerService.checkSaveExceptionMessage(ex);
+        loggerService.checkSaveExceptionMessage(ex, rootCauseMessage(ex));
         model.addAttribute("type", "Ukendt Fejl");
         model.addAttribute("errorMessage", "Det er ukendt hvad der er gået galt");
         return "error";
+    }
+
+    private String rootCauseMessage(Throwable t){
+        Throwable root = t;
+        while (root.getCause() != null){
+            root = root.getCause();
+        }
+        return root.getClass().getSimpleName() + " : " + root.getMessage();
     }
 
 }
