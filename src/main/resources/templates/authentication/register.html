@@ -24,13 +24,14 @@
             <h2>Opret bruger</h2>
             <p>Indtast den relevante information, og klik på knappen:</p>
         </section>
+
         <p>
             <strong>
                 <p th:text="${responseMessage}"></p>
             </strong>
         </p>
 
-        <p>
+            <p>
             <form th:action="@{/authentication/register}" method="post" th:object="${member}">
                 <label for="name">Indtast navn </label><br>
                 <input type="text" id="name" th:field="*{name}" placeholder="Frank" required><br><br>
@@ -38,12 +39,16 @@
                 <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
                 <label for="password">Indtast kodeord </label><br>
                 <input type="password" id="password" th:field="*{password}" required><br><br>
-            </form>
-        </p>
+            </p>
 
-        <section class="actions">
-            <button type="submit" class="btn">Prøv</button>
-        </section>
+            <section class="actions">
+                <button type="submit" class="btn">Prøv</button>
+            </section>
+
+            </form>
+
+
+
 
     </div>
 
