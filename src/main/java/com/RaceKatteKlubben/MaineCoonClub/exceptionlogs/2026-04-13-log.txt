@@ -39,6 +39,8 @@
  SQLException : Access denied for user 'roo'@'localhost' (using password: YES)
 11:21:30 : No static resource favicon.ico for request '/favicon.ico'.
  NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+15:51:55 : No static resource login for request '/login'.
+ NoResourceFoundException : No static resource login for request '/login'.
 17:56:21 : No static resource favicon.ico for request '/favicon.ico'.
  NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
 17:56:33 : No static resource favicon.ico for request '/favicon.ico'.

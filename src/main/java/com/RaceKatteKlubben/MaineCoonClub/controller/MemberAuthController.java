@@ -51,7 +51,7 @@ public class MemberAuthController {
     public String showWelcome(HttpSession session){
         Member currentMember = (Member) session.getAttribute("currentUser");
         if (currentMember == null){
-            return "redirect:/login";
+            return "redirect:/authentication/login";
         }
         return "welcome";
     }

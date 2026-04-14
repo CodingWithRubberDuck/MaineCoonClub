@@ -35,6 +35,13 @@ public class GlobalExceptionHandler {
         return "redirect:login";
     }
 
+    @ExceptionHandler(CatValidationException.class)
+    public String handleCatValidation(CatValidationException cve, RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("responseMessage", cve.getMessage());
+        return "redirect:add";
+    }
+
+
     @ExceptionHandler(DataAccessException.class)
     public String handleDataAccess(DataAccessException dae, Model model){
         loggerService.checkSaveExceptionMessage(dae, rootCauseMessage(dae));

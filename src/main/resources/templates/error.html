@@ -13,19 +13,20 @@
     <h2 th:text="${type}"></h2>
 </div>
 
-<div class="error-page-text">
-    <section class="error">
+
+    <section class="error-center">
         <p th:text="${errorMessage}"></p>
     </section>
 
+    <p class="center">
     Klik på knappen herunder for at komme tilbage til start siden:
+    </p>
 
-    <p>
-        <form action="/" method="get">
+    <div class="center">
+        <form action="/welcome" method="get">
             <button type="submit" class="btn">Gå til Start</button>
         </form>
-    </p>
-</div>
+    </div>
 
     <div class="footer">
         &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes

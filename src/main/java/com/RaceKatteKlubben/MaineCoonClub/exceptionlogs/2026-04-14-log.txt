@@ -1,0 +1,37 @@
+
+14:29:32 : No static resource login for request '/login'.
+ NoResourceFoundException : No static resource login for request '/login'.
+14:43:55 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+15:02:39 : Der gik noget galt i forbindelse med databasen
+ SQLSyntaxErrorException : Table 'maine_coon_club.member' doesn't exist
+15:06:08 : Der gik noget galt i forbindelse med databasen
+ SQLSyntaxErrorException : Table 'maine_coon_club.member' doesn't exist
+15:18:31 : Der gik noget galt i forbindelse med databasen
+ SQLSyntaxErrorException : Table 'maine_coon_club.member' doesn't exist
+15:20:50 : Der gik noget galt i forbindelse med databasen
+ SQLSyntaxErrorException : Table 'maine_coon_club.member' doesn't exist
+15:22:15 : No static resource favicon.ico for request '/favicon.ico'.
+ NoResourceFoundException : No static resource favicon.ico for request '/favicon.ico'.
+15:22:25 : Der gik noget galt i forbindelse med databasen
+ SQLSyntaxErrorException : Table 'maine_coon_club.member' doesn't exist
+15:24:58 : No static resource login for request '/login'.
+ NoResourceFoundException : No static resource login for request '/login'.
+15:30:39 : No static resource login for request '/login'.
+ NoResourceFoundException : No static resource login for request '/login'.
+15:33:13 : No static resource welcome%3E for request '/welcome%3E'.
+ NoResourceFoundException : No static resource welcome%3E for request '/welcome%3E'.
+15:34:12 : No static resource welcome%3E for request '/welcome%3E'.
+ NoResourceFoundException : No static resource welcome%3E for request '/welcome%3E'.
+21:59:19 : No static resource cat/cat/add for request '/cat/cat/add'.
+ NoResourceFoundException : No static resource cat/cat/add for request '/cat/cat/add'.
+22:06:28 : Cannot invoke "java.time.LocalDate.getYear()" because "date" is null
+ NullPointerException : Cannot invoke "java.time.LocalDate.getYear()" because "date" is null
+22:12:37 : No static resource errorgg for request '/errorgg'.
+ NoResourceFoundException : No static resource errorgg for request '/errorgg'.
+22:13:15 : No static resource login for request '/login;jsessionid=AE0D4F2979D81847E4F240C0C0AC38C3'.
+ NoResourceFoundException : No static resource login for request '/login;jsessionid=AE0D4F2979D81847E4F240C0C0AC38C3'.
+22:15:52 : No static resource errorgg for request '/errorgg'.
+ NoResourceFoundException : No static resource errorgg for request '/errorgg'.
+22:17:05 : No static resource errorgg for request '/errorgg'.
+ NoResourceFoundException : No static resource errorgg for request '/errorgg'.

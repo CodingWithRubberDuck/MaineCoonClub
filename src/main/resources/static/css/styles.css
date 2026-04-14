@@ -138,6 +138,25 @@ input {
 	font-weight: bold;
 }
 
+.error-center {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
 #indexImage {
 	width: 300px;
 	height: 200px;
