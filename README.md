@@ -1,3 +1,4 @@
+**OBS**
 Der er implementeret registrering, login, startside, startside efter login, 
 og 'tilføj kat' siden efter login. (Man kan dog ikke tilgå listen af katte endnu, medmindre man tilgår MySQL direkte)
 
@@ -15,12 +16,14 @@ Kodeord = mikkel1234
 
 -------------------------------------------------------------------------------------------------
 
-En application.properties fil skal indsættes i resources med indholdet:
-
+**Opstart**
 En database MySQL skal sættes op med kommandoen:
 
 
 CREATE DATABASE maine_coon_club;
+
+
+**En application.properties fil skal indsættes i resources med indholdet:**
 
 
 spring.application.name=MaineCoonClub
