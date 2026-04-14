@@ -8,12 +8,20 @@ Derudover er der skrevet backend til at se alle medlemmer samt at søge efter me
 Til test kan du enten oprette eget login og dermed oprette dig som medlem eller også kan du bruge den allerede oprettede konto nedenunder 
 
 (hvis .sql filerne kører som de skal):
+
 Email = mikkel@gmail.com
+
 Kodeord = mikkel1234
 
 -------------------------------------------------------------------------------------------------
 
 En application.properties fil skal indsættes i resources med indholdet:
+
+En database MySQL skal sættes op med kommandoen:
+
+
+CREATE DATABASE maine_coon_club;
+
 
 spring.application.name=MaineCoonClub
 
