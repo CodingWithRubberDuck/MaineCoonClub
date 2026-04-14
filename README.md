@@ -12,6 +12,9 @@ Kodeord = mikkel1234
 
 
 
+
+
+
 En application.properties fil skal indsættes i resources med indholdet:
 
 spring.application.name=MaineCoonClub
@@ -19,7 +22,9 @@ spring.application.name=MaineCoonClub
 server.port=8080
 
 spring.datasource.url=jdbc:mysql://localhost:3306/maine_coon_club
+
 spring.datasource.username=root
+
 spring.datasource.password=root
 
 spring.sql.init.mode=always
