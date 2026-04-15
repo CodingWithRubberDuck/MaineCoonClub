@@ -17,9 +17,9 @@ public class CatValidationService {
         validateEmsCode(cat);
         validateName(cat.getName());
         validateBirthAndDeath(cat.getDateOfBirth(), cat.getDateOfDeath());
-        validateBreeder(cat);
-        validateFather(cat);
-        validateMother(cat);
+        validateBreeder(cat.getBreeder());
+        validateFather(cat.getFatherCat());
+        validateMother(cat.getMotherCat());
     }
 
     private void validateSex(Cat cat){
@@ -46,14 +46,9 @@ public class CatValidationService {
         }
     }
 
-    private void validateBreeder(Cat cat){
+    private void validateBreeder(String breeder){
         final int MIN_NAME = 2;
         final int MAX_NAME = 100;
-        //Hvis string er tom/blank burde den ikke anses som andet end null
-        if (cat.getBreeder().isBlank()){
-            cat.setBreeder(null);
-        }
-        String breeder = cat.getBreeder();
         if (breeder != null ) {
             if (checkStringLength(breeder.length(), MIN_NAME, MAX_NAME)) {
                 throw new CatValidationException("Hvis ud skal være mellem " + MIN_NAME + " og " + MAX_NAME + " tegn");
@@ -61,14 +56,9 @@ public class CatValidationService {
         }
     }
 
-    private void validateFather(Cat cat){
+    private void validateFather(String father){
         final int MIN_NAME = 2;
         final int MAX_NAME = 200;
-        //Hvis string er tom/blank burde den ikke anses som andet end null
-        if (cat.getFatherCat().isBlank()){
-            cat.setFatherCat(null);
-        }
-        String father = cat.getBreeder();
         if (father != null) {
             if (checkStringLength(father.length(), MIN_NAME, MAX_NAME)) {
                 throw new CatValidationException("Kattens navn skal være mellem " + MIN_NAME + " og " + MAX_NAME + " tegn");
@@ -76,14 +66,9 @@ public class CatValidationService {
         }
     }
 
-    private void validateMother(Cat cat){
+    private void validateMother(String mother){
         final int MIN_NAME = 2;
         final int MAX_NAME = 200;
-        //Hvis string er tom/blank burde den ikke anses som andet end null
-        if (cat.getMotherCat().isBlank()){
-            cat.setMotherCat(null);
-        }
-        String mother = cat.getBreeder();
         if (mother != null) {
             if (checkStringLength(mother.length(), MIN_NAME, MAX_NAME)) {
                 throw new CatValidationException("Kattens navn skal være mellem " + MIN_NAME + " og " + MAX_NAME + " tegn");

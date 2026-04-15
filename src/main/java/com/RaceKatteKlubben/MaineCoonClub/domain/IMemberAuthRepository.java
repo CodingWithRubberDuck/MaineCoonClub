@@ -1,6 +1,8 @@
 package com.RaceKatteKlubben.MaineCoonClub.domain;
 
+import java.util.Optional;
+
 public interface IMemberAuthRepository {
-    Member emailAlreadyExists(String email);
+    Optional<Member> findByEmail(String email);
     void saveNewMember(Member member);
 }

@@ -26,19 +26,27 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RegisterValidationException.class)
     public String handleRegisterValidation(RegisterValidationException rve, RedirectAttributes redirectAttributes){
         redirectAttributes.addFlashAttribute("responseMessage", rve.getMessage());
-        return "redirect:register";
+        return "redirect:/authentication/register";
     }
 
     @ExceptionHandler(LoginValidationException.class)
     public String handleLoginValidation(LoginValidationException lve, RedirectAttributes redirectAttributes){
         redirectAttributes.addFlashAttribute("responseMessage", lve.getMessage());
-        return "redirect:login";
+        return "redirect:/authentication/login";
     }
 
     @ExceptionHandler(CatValidationException.class)
     public String handleCatValidation(CatValidationException cve, RedirectAttributes redirectAttributes){
         redirectAttributes.addFlashAttribute("responseMessage", cve.getMessage());
-        return "redirect:add";
+        return "redirect:/cat/add";
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public String handleIllegalValidation(IllegalArgumentException iae, Model model){
+        loggerService.checkSaveExceptionMessage(iae, rootCauseMessage(iae));
+        model.addAttribute("type", "Ugyldigt argument");
+        model.addAttribute("errorMessage", iae.getMessage());
+        return "error";
     }
 
 

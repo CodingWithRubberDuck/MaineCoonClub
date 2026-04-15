@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 
 @Repository
 public class MySQLMemberAuthRepository implements IMemberAuthRepository {
@@ -21,7 +22,7 @@ public class MySQLMemberAuthRepository implements IMemberAuthRepository {
     }
 
     @Override
-    public Member emailAlreadyExists(String email){
+    public Optional<Member> findByEmail(String email){
         String sql = "SELECT * FROM member WHERE email = ?";
 
         try (Connection con = databaseConfig.getConnection();
@@ -36,13 +37,14 @@ public class MySQLMemberAuthRepository implements IMemberAuthRepository {
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setPassword(rs.getString("password_hash"));
-                return member;
+                return Optional.of(member);
+            } else {
+                return Optional.empty();
             }
 
         } catch (SQLException sqle){
             throw new DataAccessException("Der gik noget galt i forbindelse med databasen", sqle);
         }
-        return null;
     }
 
     public void saveNewMember(Member member){

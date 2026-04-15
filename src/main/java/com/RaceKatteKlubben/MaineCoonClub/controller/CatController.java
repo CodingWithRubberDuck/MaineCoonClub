@@ -1,7 +1,6 @@
 package com.RaceKatteKlubben.MaineCoonClub.controller;
 
-import com.RaceKatteKlubben.MaineCoonClub.domain.Cat;
-import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
+import com.RaceKatteKlubben.MaineCoonClub.domain.*;
 import com.RaceKatteKlubben.MaineCoonClub.service.CatService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -22,19 +21,19 @@ public class CatController {
 
     @GetMapping("/cat/add")
     public String showWelcome(HttpSession session, Model model){
-        Member currentMember = (Member) session.getAttribute("currentUser");
-        model.addAttribute("cat", new Cat());
-        model.addAttribute("sex", service.getSex());
-        model.addAttribute("emsCodes", service.getEmsCodes());
+        AuthSessionMember currentMember = (AuthSessionMember) session.getAttribute("currentUser");
         if (currentMember == null){
             return "redirect:/authentication/login";
         }
+        model.addAttribute("cat", new Cat());
+        model.addAttribute("sex", Sex.values());
+        model.addAttribute("emsCodes", EmsCode.values());
         return "cat/add";
     }
 
     @PostMapping("/cat/add")
     public String tryToAddCat(@ModelAttribute Cat cat, RedirectAttributes redirectAttributes, HttpSession session){
-        Member currentMember = (Member) session.getAttribute("currentUser");
+        AuthSessionMember currentMember = (AuthSessionMember) session.getAttribute("currentUser");
         if (currentMember == null){
             return "redirect:/authentication/login";
         }

@@ -19,10 +19,22 @@ public class Cat {
 
     public Cat(int catId, int memberId, String name, LocalDate dateOfBirth, LocalDate dateOfDeath, Sex sex,
                EmsCode emsCode, boolean fertile, String breeder, String fatherCat, String motherCat) {
+        if (name == null){
+            throw new IllegalArgumentException("Navnet på katten mangler");
+        }
+        if (dateOfBirth == null){
+            throw new IllegalArgumentException("Fødselsdato på katten mangler");
+        }
+        if (sex == null){
+            throw new IllegalArgumentException("Køn på katten mangler");
+        }
+        if (emsCode == null){
+            throw new IllegalArgumentException("Ems kode på katten mangler");
+        }
         this.catId = catId;
         this.memberId = memberId;
         this.name = name;
-        this.dateOfBirth = dateOfDeath;
+        this.dateOfBirth = dateOfBirth;
         this.dateOfDeath = dateOfDeath;
         this.sex = sex;
         this.emsCode = emsCode;

@@ -1,5 +1,6 @@
 package com.RaceKatteKlubben.MaineCoonClub.service;
 
+import com.RaceKatteKlubben.MaineCoonClub.domain.AuthSessionMember;
 import com.RaceKatteKlubben.MaineCoonClub.domain.IMemberAuthRepository;
 import com.RaceKatteKlubben.MaineCoonClub.domain.Member;
 import com.RaceKatteKlubben.MaineCoonClub.exception.LoginValidationException;
@@ -20,7 +21,7 @@ public class MemberAuthService {
 
     public void checkRegister(Member member){
         registerValidation.validate(member);
-        if (repository.emailAlreadyExists(member.getEmail()) != null){
+        if (repository.findByEmail(member.getEmail()).isEmpty()){
             throw new RegisterValidationException("Den indtastede email findes allerede i systemet");
         }
         String hashed = BCrypt.hashpw(member.getPassword(), BCrypt.gensalt(10));
@@ -28,10 +29,11 @@ public class MemberAuthService {
         repository.saveNewMember(member);
     }
 
-    public Member checkLogin(String email, String password){
-        Member member = repository.emailAlreadyExists(email);
+    public AuthSessionMember checkLogin(String email, String password){
+        Member member = repository.findByEmail(email).orElse(null);
+
         if (member != null && BCrypt.checkpw(password, member.getPassword())){
-            return member;
+            return new AuthSessionMember(member.getMemberId(), member.getName(), member.getEmail());
         }
         throw new LoginValidationException("Email eller kodeord er ikke korrekt");
     }

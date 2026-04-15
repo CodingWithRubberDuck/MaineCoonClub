@@ -22,17 +22,21 @@ public class CatService {
     }
 
     public void checkAddCat(Cat cat){
+        normalizeOptionalFields(cat);
         validationService.validate(cat);
         repository.addCatToMember(cat);
     }
 
 
-
-    public List<EmsCode> getEmsCodes(){
-        return new ArrayList<>(Arrays.asList(EmsCode.values()));
-    }
-
-    public List<Sex> getSex(){
-        return new ArrayList<>(Arrays.asList(Sex.values()));
+    private void normalizeOptionalFields(Cat cat){
+        if (cat.getBreeder() != null && cat.getBreeder().isBlank()){
+            cat.setBreeder(null);
+        }
+        if (cat.getFatherCat() != null && cat.getFatherCat().isBlank()){
+            cat.setFatherCat(null);
+        }
+        if (cat.getMotherCat() != null && cat.getMotherCat().isBlank()){
+            cat.setMotherCat(null);
+        }
     }
 }
