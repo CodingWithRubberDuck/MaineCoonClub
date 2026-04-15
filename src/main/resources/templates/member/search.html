@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <title>Velkommen</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Velkommen</title>
+</head>
+<body>
+
+<div class="header">
+    <h1>Maine Coon Klubben</h1>
+    <p>Velkommen til vores katteunivers!</p>
+</div>
+
+<div class="navbar">
+    <ul>
+        <li><a href="/logout">Log ud</a></li>
+        <li><a href="/welcome">Start Side</a>
+        <li>
+        <li><a href="">Profil</a></li>
+        <li><a href="/cat/add">Tilføj kat</a></li>
+        <li><a href="/member/search">Søg medlem</a></li>
+        <li><a href="">Søg kat</a></li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="content">
+        <div class="intro">
+            <h2>Her kan du se listen over alle medlemmer</h2>
+        </div>
+
+        <div class="info">
+            <p>Du kan søge efter en persons navn</p>
+        </div>
+
+        <div class="search">
+            <form th:action="@{/member/search}" method="get">
+                <input type="text" name="name" th:value="${name}" placeholder="Indtast navn">
+                <button type="submit">Søg</button>
+            </form>
+        </div>
+
+        <div class="list">
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Navn</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${member.memberId}"></td>
+                    <td th:text="${member.name}"></td>
+                    <td th:text="${member.email}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

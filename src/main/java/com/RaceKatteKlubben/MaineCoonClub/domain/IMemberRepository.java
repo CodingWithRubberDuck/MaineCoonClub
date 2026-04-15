@@ -5,5 +5,5 @@ import java.util.Optional;
 
 public interface IMemberRepository {
     List<Member> findAllMembers();
-    Optional<Member> findMemberByName(String name);
+    Optional<List<Member>> findMemberByName(String name);
 }

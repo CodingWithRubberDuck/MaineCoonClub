@@ -51,7 +51,7 @@ public class MySQLMemberRepository implements IMemberRepository {
     }
 
     @Override
-    public Optional<Member> findMemberByName(String name) {
+    public Optional<List<Member>> findMemberByName(String name) {
         String sql = "SELECT * FROM member WHERE name LIKE ?";
 
         try (Connection con = databaseConfig.getConnection();
@@ -60,18 +60,19 @@ public class MySQLMemberRepository implements IMemberRepository {
             stmt.setString(1, name + "%");
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {
+            List<Member> members = new ArrayList<>();
+
+            while (rs.next()) {
                 Member member = new Member();
                 member.setMemberId(rs.getInt("member_id"));
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
-                return Optional.of(member);
+                members.add(member);
             }
+            return Optional.of(members);
 
         } catch (SQLException sqle) {
             throw new DataAccessException("Der gik noget galt i forbindelse med databasen", sqle);
         }
-
-        return Optional.empty();
     }
 }

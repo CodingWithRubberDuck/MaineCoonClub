@@ -20,7 +20,7 @@ public class MemberService {
         return repository.findAllMembers();
     }
 
-    public Optional<Member> showMemberByName(String name) {
+    public Optional<List<Member>> showMemberByName(String name) {
         return repository.findMemberByName(name);
     }
 }

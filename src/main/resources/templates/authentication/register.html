@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Registering</title>
@@ -30,26 +30,26 @@
             <p th:text="${responseMessage}"></p>
         </section>
 
-            <p>
-            <form th:action="@{/authentication/register}" method="post" th:object="${member}">
-                <label for="name">Indtast navn </label><br>
-                <input type="text" id="name" th:field="*{name}" placeholder="Frank" required><br><br>
-                <label for="email">Indtast email </label><br>
-                <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
-                <label for="password">Indtast kodeord </label><br>
-                <input type="password" id="password" th:field="*{password}" required><br><br>
+        <p>
+        <form th:action="@{/authentication/register}" method="post" th:object="${member}">
+            <label for="name">Indtast navn </label><br>
+            <input type="text" id="name" th:field="*{name}" placeholder="Frank" required><br><br>
+            <label for="email">Indtast email </label><br>
+            <input type="email" id="email" th:field="*{email}" placeholder="JegElskerKatte@gmail.com" required><br><br>
+            <label for="password">Indtast kodeord </label><br>
+            <input type="password" id="password" th:field="*{password}" required><br><br>
             </p>
 
             <section class="actions">
                 <button type="submit" class="btn">Prøv</button>
             </section>
 
-            </form>
+        </form>
     </div>
 </div>
 
-    <div class="footer">
-        &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
-    </div>
+<div class="footer">
+    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
+</div>
 </body>
 </html>

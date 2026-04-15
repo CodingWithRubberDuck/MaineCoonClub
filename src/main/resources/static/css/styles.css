@@ -162,6 +162,18 @@ input {
 	height: 200px;
 }
 
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: #FFF6F0;
+}
+
+th, tr, td {
+	border: 1px solid #444;
+	padding: 10px;
+	text-align: left;
+}
+
 /* Footer */
 .footer {
 	position: fixed;
