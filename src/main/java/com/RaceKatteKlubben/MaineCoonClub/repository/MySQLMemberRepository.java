@@ -52,12 +52,12 @@ public class MySQLMemberRepository implements IMemberRepository {
 
     @Override
     public Optional<List<Member>> findMemberByName(String name) {
-        String sql = "SELECT * FROM member WHERE name LIKE ?";
+        String sql = "SELECT * FROM member WHERE name LIKE ? ORDER BY name ASC";
 
         try (Connection con = databaseConfig.getConnection();
              PreparedStatement stmt = con.prepareStatement(sql)) {
 
-            stmt.setString(1, name + "%");
+            stmt.setString(1, "%" + name + "%");
             ResultSet rs = stmt.executeQuery();
 
             List<Member> members = new ArrayList<>();

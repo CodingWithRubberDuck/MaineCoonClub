@@ -13,7 +13,16 @@
     <p>Velkommen til vores katteunivers!</p>
 </div>
 
-<div class="navbar" th:insert="fragments/navbar :: navbar"></div>
+<div class="navbar">
+    <ul>
+        <li><a href="/logout">Log ud</a></li>
+        <li><a href="/welcome">Start Side</a><li>
+        <li><a href="">Profil</a></li>
+        <li><a href="/cat/add">Tilføj kat</a></li>
+        <li><a href="/member/search">Søg medlem</a></li>
+        <li><a href="">Søg kat</a></li>
+    </ul>
+</div>
 
 <div class="container">
 

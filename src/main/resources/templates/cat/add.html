@@ -13,7 +13,16 @@
     <p>Velkommen til vores katteunivers!</p>
 </div>
 
-    <div class="navbar" th:insert="fragments/navbar :: navbar"></div>
+<div class="navbar">
+    <ul>
+        <li><a href="/logout">Log ud</a></li>
+        <li><a href="/welcome">Start Side</a><li>
+        <li><a href="">Profil</a></li>
+        <li><a href="/cat/add">Tilføj kat</a></li>
+        <li><a href="/member/search">Søg medlem</a></li>
+        <li><a href="">Søg kat</a></li>
+    </ul>
+</div>
 
 <div class="container">
     <div class="content">
@@ -29,44 +38,44 @@
         </section>
 
         <div class="center">
-        <form th:action="@{/cat/add}" method="post" th:object="${cat}">
-            <p>
-            <label for="name">Indtast kattens navn </label><br>
-            <input type="text" id="name" th:field="*{name}" placeholder="Bing Bong" required><br><br>
-            <label for="breeder">Indtast opdrætterens navn (valgfri) </label><br>
-            <input type="text" id="breeder" th:field="*{breeder}" placeholder="Frank" ><br><br>
-            <label for="fatherCat">Indtast navnet på kattens far (valgfri) </label><br>
-            <input type="text" id="fatherCat" th:field="*{fatherCat}" placeholder="Bong Bong" ><br><br>
-            <label for="motherCat">Indtast navnet på kattens mor (valgfri) </label><br>
-            <input type="text" id="motherCat" th:field="*{motherCat}" placeholder="Bing Bing" ><br><br>
+            <form th:action="@{/cat/add}" method="post" th:object="${cat}">
+                <p>
+                    <label for="name">Indtast kattens navn </label><br>
+                    <input type="text" id="name" th:field="*{name}" placeholder="Bing Bong" required><br><br>
+                    <label for="breeder">Indtast opdrætterens navn (valgfri) </label><br>
+                    <input type="text" id="breeder" th:field="*{breeder}" placeholder="Frank"><br><br>
+                    <label for="fatherCat">Indtast navnet på kattens far (valgfri) </label><br>
+                    <input type="text" id="fatherCat" th:field="*{fatherCat}" placeholder="Bong Bong"><br><br>
+                    <label for="motherCat">Indtast navnet på kattens mor (valgfri) </label><br>
+                    <input type="text" id="motherCat" th:field="*{motherCat}" placeholder="Bing Bing"><br><br>
 
-            <label for="fertile">Er katten fertil? </label><br>
-            <input type="checkbox" id="fertile" th:field="*{fertile}"><br><br>
-            <label for="birth">Fødselsdato </label><br>
-            <input type="date" id="birth" th:field="*{dateOfBirth}" placeholder="2020-01-01"  required><br><br>
-            <label for="death">Indtast dato herunder hvis katten er gået bort (Valgfri) </label><br>
-            <input type="date" id="death" th:field="*{dateOfDeath}"><br><br>
-            <label for="sex-options"> Vælg kønnet på katten  </label><br>
-            <select class="form-control" th:field="*{sex}" name="sex-options" id="sex-options">
-                <option th:each="sexOption : ${sex}"
-                    th:value="${sexOption}"
-                    th:text="${sexOption.displayValue}"></option>
-            </select><br><br>
-            <label for="ems-code-options"> Vælg EMS-koden for katten </label><br>
-            <select class="form-control" th:field="*{emsCode}" name="ems-code-options" id="ems-code-options">
-                <option th:each="emsCode : ${emsCodes}"
-                    th:value="${emsCode}"
-                    th:text="${emsCode.displayValue}"></option>
-            </select><br><br>
-            </p>
+                    <label for="fertile">Er katten fertil? </label><br>
+                    <input type="checkbox" id="fertile" th:field="*{fertile}"><br><br>
+                    <label for="birth">Fødselsdato </label><br>
+                    <input type="date" id="birth" th:field="*{dateOfBirth}" placeholder="2020-01-01" required><br><br>
+                    <label for="death">Indtast dato herunder hvis katten er gået bort (Valgfri) </label><br>
+                    <input type="date" id="death" th:field="*{dateOfDeath}"><br><br>
+                    <label for="sex-options"> Vælg kønnet på katten </label><br>
+                    <select class="form-control" th:field="*{sex}" name="sex-options" id="sex-options">
+                        <option th:each="sexOption : ${sex}"
+                                th:value="${sexOption}"
+                                th:text="${sexOption.displayValue}"></option>
+                    </select><br><br>
+                    <label for="ems-code-options"> Vælg EMS-koden for katten </label><br>
+                    <select class="form-control" th:field="*{emsCode}" name="ems-code-options" id="ems-code-options">
+                        <option th:each="emsCode : ${emsCodes}"
+                                th:value="${emsCode}"
+                                th:text="${emsCode.displayValue}"></option>
+                    </select><br><br>
+                </p>
 
-            <div class="center">
-            <section class="actions">
-                <button type="submit" class="btn">Tilføj Katten</button>
-            </section>
-            </div>
-        </form>
-    </div>
+                <div class="center">
+                    <section class="actions">
+                        <button type="submit" class="btn">Tilføj Katten</button>
+                    </section>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
