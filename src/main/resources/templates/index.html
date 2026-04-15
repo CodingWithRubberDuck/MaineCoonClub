@@ -15,11 +15,7 @@
 
 <div class="container">
 
-    <nav class="sidebar">
-        <a href="/" class="nav-link">Startside</a>
-        <a href="/authentication/register" class="nav-link">Registrering</a>
-        <a href="/authentication/login" class="nav-link">Log ind</a>
-    </nav>
+    <div class="sidebar" th:replace="fragments/linkbar :: linkbar"></div>
 
     <div class="content">
         <section class="intro">
@@ -43,8 +39,8 @@
 
 </div>
 
-<div class="footer">
-    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
-</div>
+    <div class="footer">
+        &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
+    </div>
 </body>
 </html>
