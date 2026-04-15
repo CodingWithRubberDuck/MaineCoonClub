@@ -21,7 +21,7 @@ public class MemberAuthService {
 
     public void checkRegister(Member member){
         registerValidation.validate(member);
-        if (repository.findByEmail(member.getEmail()).isEmpty()){
+        if (repository.findByEmail(member.getEmail()).isPresent()){
             throw new RegisterValidationException("Den indtastede email findes allerede i systemet");
         }
         String hashed = BCrypt.hashpw(member.getPassword(), BCrypt.gensalt(10));
