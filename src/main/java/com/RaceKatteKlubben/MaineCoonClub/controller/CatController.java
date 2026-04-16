@@ -20,7 +20,7 @@ public class CatController {
     }
 
     @GetMapping("/cat/add")
-    public String showWelcome(HttpSession session, Model model){
+    public String showCatAdd(HttpSession session, Model model){
         AuthSessionMember currentMember = (AuthSessionMember) session.getAttribute("currentUser");
         if (currentMember == null){
             return "redirect:/authentication/login";

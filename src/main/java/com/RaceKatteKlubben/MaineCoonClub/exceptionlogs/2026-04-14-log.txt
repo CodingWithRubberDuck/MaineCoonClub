@@ -35,3 +35,5 @@
  NoResourceFoundException : No static resource errorgg for request '/errorgg'.
 22:17:05 : No static resource errorgg for request '/errorgg'.
  NoResourceFoundException : No static resource errorgg for request '/errorgg'.
+22:51:46 : No static resource errorgg for request '/errorgg'.
+ NoResourceFoundException : No static resource errorgg for request '/errorgg'.
