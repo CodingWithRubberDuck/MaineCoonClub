@@ -156,16 +156,10 @@ input {
     text-align: center;
 }
 
-.text-area {
+#welcomeImage {
+	width: 100%;
+	height: 100%;
 	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 2rem;
-}
-#indexImage {
-	width: 300px;
-	height: auto;
-	align-self: flex-start;
 }
 
 .search {
