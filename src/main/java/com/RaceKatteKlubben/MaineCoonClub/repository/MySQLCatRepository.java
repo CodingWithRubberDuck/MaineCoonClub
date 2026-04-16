@@ -64,8 +64,8 @@ public class MySQLCatRepository implements ICatRepository {
                 Cat cat = new Cat();
                 cat.setCatId(rs.getInt("cat_id"));
                 cat.setName(rs.getString("name"));
-                Sex.valueOf(rs.getString("sex"));
-                EmsCode.valueOf(rs.getString("ems_code"));
+                cat.setSex(Sex.valueOf(rs.getString("sex")));
+                cat.setEmsCode(EmsCode.valueOf(rs.getString("ems_code")));
                 cat.setFertile(rs.getBoolean("fertile"));
                 cat.setDateOfBirth(rs.getDate("date_of_birth").toLocalDate());
                 cats.add(cat);

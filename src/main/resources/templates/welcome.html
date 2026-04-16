@@ -13,10 +13,22 @@
     <p>Velkommen til vores katteunivers!</p>
 </div>
 
-<div class="navbar" th:insert="fragments/navbar :: navbar"></div>
+<div class="navbar" th:insert="~{fragments/navbar :: navbar}"></div>
 
 <div class="container">
     <div class="content">
+        <div class="center">
+            <h1>Velkommen&nbsp;</h1>
+
+            <h1 th:text="${name}"></h1>
+        </div>
+        <div class="center">
+            <p>Du kan bevæge dig rundt på siden ved brug af navigationsbaren i toppen af siden.</p>
+        </div>
+        <div class="center">
+            <p>Vi håber du har en god oplevelse! :D</p>
+        </div>
+
         <img id="welcomeImage" src="/images/mainecoon-lang.png" alt="Billede af kat">
     </div>
 </div>

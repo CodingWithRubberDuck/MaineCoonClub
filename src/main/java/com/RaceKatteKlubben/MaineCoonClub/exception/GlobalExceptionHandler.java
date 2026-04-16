@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    final ExceptionLoggerService loggerService;
+    private final ExceptionLoggerService loggerService;
 
     public GlobalExceptionHandler(ExceptionLoggerService loggerService){
         this.loggerService = loggerService;

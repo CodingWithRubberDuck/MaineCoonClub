@@ -14,7 +14,7 @@
     <p>Velkommen til vores katteunivers!</p>
 </div>
 
-<div class="navbar" th:insert="fragments/navbar :: navbar"></div>
+<div class="navbar" th:insert="~{fragments/navbar :: navbar}"></div>
 
 <div class="container">
     <div class="content">
@@ -41,7 +41,7 @@
                     <th>Navn</th>
                     <th>Køn</th>
                     <th>Ems Kode</th>
-                    <th>Fertilitet</th>
+                    <th>Fertil</th>
                     <th>Fødselsdag</th>
                 </tr>
                 </thead>
@@ -50,9 +50,10 @@
                 <tr th:each="cat : ${cats}">
                     <td th:text="${cat.catId}"></td>
                     <td th:text="${cat.name}"></td>
-                    <td th:text="${cat.sex}"></td>
-                    <td th:text="${cat.emsCode}"></td>
-                    <td th:text="${cat.fertile}"></td>
+                    <td th:text="${cat.sex.displayValue}"></td>
+                    <td th:text="${cat.emsCode.displayValue}"></td>
+                    <td th:text="${cat.fertile} ? 'Ja' : 'Nej'">
+                    </td>
                     <td th:text="${cat.dateOfBirth}"></td>
                 </tr>
                 </tbody>

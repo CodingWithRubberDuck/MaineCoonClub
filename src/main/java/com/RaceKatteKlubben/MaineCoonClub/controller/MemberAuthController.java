@@ -49,11 +49,12 @@ public class MemberAuthController {
     }
 
     @GetMapping("/welcome")
-    public String showWelcome(HttpSession session){
+    public String showWelcome(HttpSession session, Model model){
         AuthSessionMember currentMember = (AuthSessionMember) session.getAttribute("currentUser");
         if (currentMember == null){
             return "redirect:/authentication/login";
         }
+        model.addAttribute("name", currentMember.getName());
         return "welcome";
     }
 
