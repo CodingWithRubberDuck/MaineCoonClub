@@ -8,7 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CatController {
@@ -45,5 +50,24 @@ public class CatController {
         return "redirect:/cat/add";
     }
 
+    @GetMapping("/cat/search")
+    public String listCats(@RequestParam(required = false) String name, HttpSession session, Model model) {
+        AuthSessionMember currentMember = (AuthSessionMember) session.getAttribute("currentUser");
+        if (currentMember == null) {
+            return "redirect:/authentication/login";
+        }
+        List<Cat> cats = new ArrayList<>();
 
+        if (name == null || name.isBlank()) {
+            cats = service.showListOfCats();
+        } else {
+            Optional<List<Cat>> result = service.showCatByName(name);
+            if (result.isPresent()) {
+                cats = result.get();
+            }
+        }
+        model.addAttribute("cats", cats);
+
+        return "cat/search";
+    }
 }

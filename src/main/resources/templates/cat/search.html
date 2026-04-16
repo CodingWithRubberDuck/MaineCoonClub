@@ -19,15 +19,15 @@
 <div class="container">
     <div class="content">
         <div class="intro">
-            <h2>Her kan du se listen over alle medlemmer</h2>
+            <h2>Her kan du se listen over alle katte</h2>
         </div>
 
         <div class="info">
-            <p>Du kan søge efter en persons navn</p>
+            <p>Du kan søge efter en kats navn</p>
         </div>
 
         <div class="search">
-            <form th:action="@{/member/search}" method="get">
+            <form th:action="@{/cat/search}" method="get">
                 <input type="text" name="name" th:value="${name}" placeholder="Du kan søge efter en del af en persons navn">
                 <button type="submit" class="btn">Søg</button>
             </form>
@@ -39,15 +39,21 @@
                 <tr>
                     <th>Id</th>
                     <th>Navn</th>
-                    <th>Email</th>
+                    <th>Køn</th>
+                    <th>Ems Kode</th>
+                    <th>Fertilitet</th>
+                    <th>Fødselsdag</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr th:each="member : ${members}">
-                    <td th:text="${member.memberId}"></td>
-                    <td th:text="${member.name}"></td>
-                    <td th:text="${member.email}"></td>
+                <tr th:each="cat : ${cats}">
+                    <td th:text="${cat.catId}"></td>
+                    <td th:text="${cat.name}"></td>
+                    <td th:text="${cat.sex}"></td>
+                    <td th:text="${cat.emsCode}"></td>
+                    <td th:text="${cat.fertile}"></td>
+                    <td th:text="${cat.dateOfBirth}"></td>
                 </tr>
                 </tbody>
             </table>

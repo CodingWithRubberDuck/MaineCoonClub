@@ -1,14 +1,12 @@
 package com.RaceKatteKlubben.MaineCoonClub.service;
 
-import com.RaceKatteKlubben.MaineCoonClub.domain.Cat;
-import com.RaceKatteKlubben.MaineCoonClub.domain.EmsCode;
-import com.RaceKatteKlubben.MaineCoonClub.domain.ICatRepository;
-import com.RaceKatteKlubben.MaineCoonClub.domain.Sex;
+import com.RaceKatteKlubben.MaineCoonClub.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CatService {
@@ -38,5 +36,13 @@ public class CatService {
         if (cat.getMotherCat() != null && cat.getMotherCat().isBlank()){
             cat.setMotherCat(null);
         }
+    }
+
+    public List<Cat> showListOfCats() {
+        return repository.findAllCats();
+    }
+
+    public Optional<List<Cat>> showCatByName(String name) {
+        return repository.findCatByName(name);
     }
 }
