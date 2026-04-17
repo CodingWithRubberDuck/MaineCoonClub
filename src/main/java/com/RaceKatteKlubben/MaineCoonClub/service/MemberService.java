@@ -23,4 +23,8 @@ public class MemberService {
     public Optional<List<Member>> showMemberByName(String name) {
         return repository.findMemberByName(name);
     }
+
+    public void removeMemberById(int memberId){
+        repository.deleteMemberById(memberId);
+    }
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Velkommen</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Maine Coon Klubben</h1>
+    <p>Velkommen til vores katteunivers!</p>
+</div>
+
+<div class="navbar" th:insert="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+    <div class="content">
+        <div class="center-space-below">
+            <h1>Du er ved at slette din profil</h1>
+        </div>
+        <div class="center">
+            <h2>Din profil kan ikke gendannes, er du sikker på at du vil slette din profil?</h2>
+        </div>
+        <div class="center-space-below">
+            <p>Hvis du trykker <strong> 'bekræft' </strong> nedenunder vil du permanent slette din profil, samt alle tilhørende data i symstemet</p>
+        </div>
+        <div class="center-space-below">
+            <form th:action="@{/personal/deregister}" method="post">
+                <button type="submit" class="btn-red">Bekræft</button>
+            </form>
+        </div>
+        <div class="center">
+            <form action="/personal/profile" method="get">
+                <button type="submit" class="btn">Fortryd</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; 2026 Maine Coon Klubben | Alle rettigheder forbeholdes
+</div>
+
+</body>
+
+</html>

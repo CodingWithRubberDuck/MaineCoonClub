@@ -75,4 +75,20 @@ public class MySQLMemberRepository implements IMemberRepository {
             throw new DataAccessException("Der gik noget galt i forbindelse med databasen", sqle);
         }
     }
+
+    @Override
+    public void deleteMemberById(int memberId){
+        String sql = "DELETE FROM member WHERE member_id=?";
+        try (Connection con = databaseConfig.getConnection();
+             PreparedStatement stmt = con.prepareStatement(sql)) {
+
+            stmt.setInt(1, memberId);
+            stmt.executeUpdate();
+        } catch (SQLException sqle) {
+            throw new DataAccessException("Der gik noget galt i forbindelse med databasen. " +
+                    "\nMedlemmet er ikke blevet fjernet", sqle);
+        }
+    }
+
+
 }

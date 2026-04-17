@@ -12,7 +12,7 @@ CREATE TABLE member (
 CREATE TABLE cat (
                      cat_id INT AUTO_INCREMENT PRIMARY KEY,
                      member_id INT,
-                     FOREIGN KEY (member_id) REFERENCES member (member_id),
+                     FOREIGN KEY (member_id) REFERENCES member (member_id) ON DELETE SET NULL,
                      name VARCHAR(200) NOT NULL,
                      date_of_birth DATE NOT NULL,
                      date_of_death DATE,
