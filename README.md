@@ -1,3 +1,6 @@
+Dette er den originale version som blev brugt til fremlæggelse.
+
+
 **OBS**
 
 Der er implementeret registrering, login, startside, startside efter login, 
